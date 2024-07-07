@@ -119,6 +119,30 @@
       </div>
     </div>
   </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Sélectionnez tous les inputs de votre formulaire
+      const inputs = document.querySelectorAll('.form-outline .form-control');
+  
+      // Fonction pour vérifier la valeur de l'input et ajuster le style du label
+      function toggleLabelVisibility() {
+        const label = this.nextElementSibling;
+        if (this.value) {
+          label.style.display = 'none';
+        } else {
+          label.style.display = 'block';
+        }
+      }
+  
+      // Ajoutez un écouteur d'événements pour chaque input
+      inputs.forEach(input => {
+        input.addEventListener('input', toggleLabelVisibility);
+  
+        // Vérifiez immédiatement lors du chargement de la page si l'input contient déjà une valeur
+        toggleLabelVisibility.call(input);
+      });
+    });
+  </script>
   <script src="../scripts/register.js"></script>
 </body>
 </html>

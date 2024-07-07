@@ -13,8 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
         await window.ipcRenderer.invoke('add-user', { username, email, password });
         loadUsers();
         addUserForm.reset();
+        window.location.href = 'login.html';
       } catch (error) {
-        console.error('Error adding user:', error);
+        alert('veuillez remplir tous les champs');
       }
     });
   
