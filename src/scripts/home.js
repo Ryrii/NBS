@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', async() => {
   const navMenu = document.getElementById('navMenu');
   if (user) {
     navMenu.innerHTML = `
-      <a href="profile.html">Profile</a>
+      <a href="profile.html">Profil</a>
     `;
   }else{
     navMenu.innerHTML = `

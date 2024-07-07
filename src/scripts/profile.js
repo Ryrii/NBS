@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     const profileInfo = document.getElementById('profileInfo');
     profileInfo.innerHTML = `
-      <p>Name: ${user.name}</p>
+      <p>Nom: ${user.name}</p>
       <p>Email: ${user.email}</p>
     `;
     const logoutButton = document.getElementById('logout');

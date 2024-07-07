@@ -1,26 +1,136 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <title>Connexion</title>
-  <style>
-    body { font-family: Arial, sans-serif; }
-    form { margin-top: 20px; }
-    input { margin-bottom: 10px; }
-  </style>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../node_modules/mdb-ui-kit/css/mdb.min.css">
 </head>
+
 <body>
-  <h1>Connexion</h1>
-  <nav style="background-color: #f0f0f0; padding: 10px; text-align: center;">
-    <a href="home.html" style="margin-right: 15px;">Accueil</a>
-    <a href="register.html" style="margin-right: 15px;">S'inscrire</a>
-    <!-- Ajoutez d'autres liens de navigation ici -->
-  </nav>
-  <form id="loginForm">
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Mot de passe" required>
-    <button type="submit">Se Connecter</button>
-  </form>
-  <script src="../scripts/login.js"></script>
+    <section class="background-radial-gradient overflow-hidden">
+      <style>
+        .background-radial-gradient {
+          background-color: hsl(218, 41%, 15%);
+          background-image: radial-gradient(650px circle at 0% 0%,
+              hsl(212, 24%, 35%) 15%,
+              hsl(212, 24%, 30%) 35%,
+              hsl(212, 24%, 20%) 75%,
+              hsl(212, 24%, 19%) 80%,
+              transparent 100%),
+            radial-gradient(1250px circle at 100% 100%,
+              hsl(212, 24%, 45%) 15%,
+              hsl(212, 24%, 30%) 35%,
+              hsl(212, 24%, 20%) 75%,
+              hsl(212, 24%, 19%) 80%,
+              transparent 100%);
+        }
+
+        #radius-shape-1 {
+          height: 220px;
+          width: 220px;
+          top: -60px;
+          left: -130px;
+          background: radial-gradient(#a36d27, #EBAC59);
+          overflow: hidden;
+        }
+
+        #radius-shape-2 {
+          border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+          bottom: -60px;
+          right: -110px;
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(#a36d27, #EBAC59);
+          overflow: hidden;
+        }
+
+        .bg-glass {
+          background-color: hsla(0, 0%, 100%, 0.9) !important;
+          backdrop-filter: saturate(200%) blur(25px);
+        }
+        .container{
+          height: 100vh;
+        }
+      </style>
+
+      <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="col-lg-1 mb-2 text-lg-start"> <!-- Changement pour aligner à gauche -->
+          <a href="home.html">
+            Accueil
+          </a>
+        </div>
+        <div class="row gx-lg-5 align-items-center mb-5">
+          <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+            <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+              NeoByteServices <br />
+              <!-- <span style="color: #ebac59">NeoByteServices</span> -->
+            </h1>
+            <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+              Depuis 10 ans, notre équipe d’informaticiens chevronnés prend soin, protège et sécurise votre infrastructure ainsi que l’ensemble de vos données. Nous offrons une infogérance nouvelle génération, entièrement à distance, disponible 24h/24, 7j/7.
+
+            </p>
+          </div>
+
+          <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+            <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+            <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+            <div class="card bg-glass">
+              <div class="card-body px-4 py-5 px-md-5">
+                <form id="loginForm">
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="email" id="email" class="form-control" />
+                    <label class="form-label" for="form3Example3">Email address</label>
+                  </div>
+
+                  <!-- Password input -->
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="password" id="password" class="form-control" />
+                    <label class="form-label" for="form3Example4">Password</label>
+                  </div>
+
+
+                  <!-- Submit button -->
+                  <button type="submit" data-mdb-button-init data-mdb-ripple-init
+                    class="btn btn-primary btn-block mb-4">
+                    Se Connecter
+                  </button>
+                </form>
+
+                <p>Vous n'avez pas de compte? <a href="register.html">S'inscrire</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // Sélectionnez tous les inputs de votre formulaire
+        const inputs = document.querySelectorAll('.form-outline .form-control');
+    
+        // Fonction pour vérifier la valeur de l'input et ajuster le style du label
+        function toggleLabelVisibility() {
+          const label = this.nextElementSibling;
+          if (this.value) {
+            label.style.display = 'none';
+          } else {
+            label.style.display = 'block';
+          }
+        }
+    
+        // Ajoutez un écouteur d'événements pour chaque input
+        inputs.forEach(input => {
+          input.addEventListener('input', toggleLabelVisibility);
+    
+          // Vérifiez immédiatement lors du chargement de la page si l'input contient déjà une valeur
+          toggleLabelVisibility.call(input);
+        });
+      });
+    </script>
+    <script src="../scripts/login.js"></script>
+    
 </body>
 </html>
